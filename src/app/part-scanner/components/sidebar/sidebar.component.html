@@ -1,0 +1,15 @@
+<nav class="sidebar" id="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+  <div class="list-group">
+      <a [routerLink]="['/scan-part']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa fa-file"></i>&nbsp;
+          <span>{{ 'Today\'s Report' }}</span>
+      </a>
+      <a [routerLink]="['/part-list']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw  fa-bar-chart"></i>&nbsp;
+          <span>{{ 'Attendance Stats' }}</span>
+      </a>
+      <hr >        
+      
+  </div>
+
+</nav>

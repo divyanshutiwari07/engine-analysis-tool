@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg d-flex justify-content-space fixed-top">
+  <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+      <i class="fa fa-bars text-muted" aria-hidden="false"></i>
+  </button>
+  <span class='navbar-brand'><img src='../../../../assets//images/fram-logo-latest.png'></span>
+  <div class="navbar-collapse d-flex">
+      <!-- <div>
+          <button mat-stroked-button [matMenuTriggerFor]="menu">Select Location <mat-icon>arrow_drop_down</mat-icon></button>
+          <mat-menu #menu="matMenu" >
+              <button mat-menu-item (click)="firstLocation()" >Location 1</button>
+              <button mat-menu-item (click)="secondLocation()">Location 2</button>
+              <button mat-menu-item>Location 3</button>
+              <button mat-menu-item>Location 4</button>
+          </mat-menu>
+      </div> -->
+      
+      <ul class="navbar-nav ml-auto">                
+          <li class="nav-item dropdown" placement="bottom-right" ngbDropdown >
+              <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle >
+                  <i class="fa fa-user-circle"></i>
+              </a>
+              <div class="dropdown-menu-right" ngbDropdownMenu> 
+                  <a class="dropdown-item" (click)="onLoggedout()">
+                      <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' }}
+                  </a>
+              </div>
+          </li>
+      </ul>
+  </div>
+</nav>
