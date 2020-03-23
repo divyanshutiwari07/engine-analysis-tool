@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, Input, EventEmitter, OnChanges} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
@@ -8,7 +8,8 @@ import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
   templateUrl: './camera.component.html',
   styleUrls: ['./camera.component.scss']
 })
-export class CameraComponent implements OnInit {
+export class CameraComponent implements OnInit, OnChanges {
+  @Input() imageSrc;
   @Output()
   public pictureTaken = new EventEmitter<WebcamImage>();
 
@@ -28,6 +29,9 @@ export class CameraComponent implements OnInit {
   // switch to next / previous / specific webcam; true/false: forward/backwards, string: deviceId
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
 
+  ngOnChanges() {
+    console.log('image', this.imageSrc);
+  }
   public ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
       .then((mediaDevices: MediaDeviceInfo[]) => {

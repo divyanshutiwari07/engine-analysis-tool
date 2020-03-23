@@ -15,8 +15,20 @@
     </div>
   </div>
   <hr />
+  <div class="search">
+    <mat-form-field>
+      <mat-label>Select Shape</mat-label>
+      <mat-select [(ngModel)]="selectedOutlineImage" name="empname">
+          <mat-option *ngFor="let outlineImage of outlineImageList" [value]="outlineImage.src">
+              {{outlineImage.image}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <app-camera (pictureTaken)="handleImage($event)"></app-camera>
+    {{selectedOutlineImage}}
+  </div>
+  
+  <app-camera [imageSrc]='selectedOutlineImage' (pictureTaken)="handleImage($event)"></app-camera>
 
   <div class="snapshot" *ngIf="webcamImage">
     <img [src]="webcamImage.imageAsDataUrl" />
