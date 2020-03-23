@@ -5,8 +5,8 @@
         <webcam [height]="375" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
                 [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
                 (initError)="handleInitError($event)"></webcam>
-        <div class="overlay-img">
-          <img src="assets/images/utc-engine-outline.png">
+        <div class="overlay-img" *ngIf="imageSrc">
+          <img [src]="imageSrc">
         </div>
       </div>
       <br/>

@@ -1,9 +1,9 @@
 <!-- <div class="snapshotList" *ngIf="webcamImages?.length > 0">
-  <mat-grid-list cols="4">        
+  <mat-grid-list cols="4">
     <mat-grid-tile *ngFor="let webcamImg of webcamImages">
         <button class="btn btn-danger remove-image" placement="top" ngbTooltip="Delete Image" (click)="removeImage('webcamImages', webcamImg)">
             <i class="fa fa-close" aria-hidden="false"></i>
-          </button>            
+          </button>
         <img [src]="webcamImg.original.imageAsDataUrl" style="object-fit: cover; height: inherit; width: inherit;" />
     </mat-grid-tile>
   </mat-grid-list>
@@ -17,17 +17,16 @@
   <hr />
   <div class="search">
     <mat-form-field>
-      <mat-label>Select Shape</mat-label>
-      <mat-select [(ngModel)]="selectedOutlineImage" name="empname">
-          <mat-option *ngFor="let outlineImage of outlineImageList" [value]="outlineImage.src">
-              {{outlineImage.image}}
-          </mat-option>
+      <mat-label>Department</mat-label>
+      <mat-select [(value)]="selectedOutlineImage" name="outlineImg">
+        <mat-option>All</mat-option>
+        <mat-option *ngFor="let outlineImage of outlineImageList" [value]="outlineImage.src">
+          {{outlineImage.image}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
-
-    {{selectedOutlineImage}}
   </div>
-  
+
   <app-camera [imageSrc]='selectedOutlineImage' (pictureTaken)="handleImage($event)"></app-camera>
 
   <div class="snapshot" *ngIf="webcamImage">

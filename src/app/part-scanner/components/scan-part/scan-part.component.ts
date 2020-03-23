@@ -11,6 +11,8 @@ export class ScanPartComponent implements OnInit, OnChanges {
   public selectedOutlineImage;
   public outlineImageList;
   public webcamImage: WebcamImage = null;
+  selected = 'option2';
+
   showCameraView: boolean;
 
   handleImage(webcamImage: WebcamImage) {
@@ -21,13 +23,13 @@ export class ScanPartComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.outlineImageList = [
-      { image: 'first', src: 'assest/images/utc-engine-outline.png' },
-      { image: 'seocnd', src: 'assest/images/utc-engine-outline.png' }
+      { image: 'Engine outline 1', src: '../../assets/images/engines-outlines/utc-engine-outline.png' },
+      { image: 'Some Other', src: 'https://via.placeholder.com/300.png/09f/fff' }
     ];
   }
 
   ngOnChanges() {
-    
+
   }
 
   toggleCamera() {
