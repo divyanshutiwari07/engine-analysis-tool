@@ -8,4 +8,12 @@
     display: flex;
     justify-content: flex-end;
   }
+
+  .snapshot {
+    margin-top: 10px;
+    text-align: center;
+    > img {
+      padding: 0;
+    }
+  }
 }

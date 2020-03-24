@@ -2,24 +2,30 @@ $topnav-background-color: #fff;
 
 :host {
     .navbar {
-     box-shadow: 
+     box-shadow:
         0 0px 0px -4px rgba(0, 0, 0, 0.2),
         0 0px 0px 0px rgba(0, 0, 0, 0.14),
         0 0px 4px 2px rgba(0, 0, 0, 0.12);
         min-height: 105px;
         border-bottom: 1px solid rgba(0,0,0,.2);
         background-color: $topnav-background-color;
+        justify-content: space-between;
 
         .navbar-brand {
             color: black;
+            display: flex;
             max-width: 85%;
             overflow: hidden;
             text-overflow: ellipsis;
-            width: 80%;
-            margin-right: 6em;
-            margin-bottom: 0;
-            margin-left: 22px;
-        }   
+            > h2 {
+              margin: 0 0 0 10px;
+            }
+        }
+
+        .navbar-collapse {
+          flex-basis: 0%;
+          flex-grow: 0;
+        }
 
         .navbar-toggler {
             padding-right: 0;
@@ -27,7 +33,7 @@ $topnav-background-color: #fff;
             padding: 0;
             padding-left: 3px;
         }
-        
+
         .nav-item > a {
             color: black;
             &:hover {
@@ -35,7 +41,7 @@ $topnav-background-color: #fff;
             }
         }
 
-        .logo-style {        
+        .logo-style {
             span {
                 color: #75807a;
                 font-style: italic;
@@ -46,15 +52,15 @@ $topnav-background-color: #fff;
         .navbar-nav {
             .dropdown-toggle::after {
                 display:none;
-            }   
+            }
             i.fa-user-circle {
                 font-size: 25px;
-            } 
+            }
             .dropdown-menu {
                 position: absolute;
             }
         }
-    }   
+    }
 }
 
 .dropdown-menu[x-placement="bottom-right"] {
@@ -65,6 +71,30 @@ $topnav-background-color: #fff;
 @media screen and (max-width: 750px) {
     .navbar-brand {
         margin-right: 2em !important;
-    }   
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar-brand {
+        > .full-text {
+          display: none;
+        }
+
+        > .short-text {
+          display: initial;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar-brand {
+        > .full-text {
+          display: initial;
+        }
+
+        > .short-text {
+          display: none;
+        }
+    }
 }
 

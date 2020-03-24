@@ -2,19 +2,17 @@
   <div style="text-align:center">
     <div>
       <div class="webcam-cont">
-        <webcam [height]="375" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+        <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+                id="part_scanner_cam"
                 [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
                 (initError)="handleInitError($event)"></webcam>
         <div class="overlay-img" *ngIf="imageSrc">
           <img [src]="imageSrc">
         </div>
       </div>
-      <br/>
       <button type="button" class="btn btn-default not-focusable" (click)="triggerSnapshot();">
         Capture Image
       </button>
-      <!--		<div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture"></div>-->
-      <!--		<div class="actionBtn" (click)="showNextWebcam(true);" title="Switch Camera"></div>-->
     </div>
   </div>
 

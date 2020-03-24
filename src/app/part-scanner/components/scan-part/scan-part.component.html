@@ -1,13 +1,3 @@
-<!-- <div class="snapshotList" *ngIf="webcamImages?.length > 0">
-  <mat-grid-list cols="4">
-    <mat-grid-tile *ngFor="let webcamImg of webcamImages">
-        <button class="btn btn-danger remove-image" placement="top" ngbTooltip="Delete Image" (click)="removeImage('webcamImages', webcamImg)">
-            <i class="fa fa-close" aria-hidden="false"></i>
-          </button>
-        <img [src]="webcamImg.original.imageAsDataUrl" style="object-fit: cover; height: inherit; width: inherit;" />
-    </mat-grid-tile>
-  </mat-grid-list>
-</div> -->
 <div class="scan-part-container">
   <div class='header'>
     <div>
@@ -30,6 +20,6 @@
   <app-camera [imageSrc]='selectedOutlineImage' (pictureTaken)="handleImage($event)"></app-camera>
 
   <div class="snapshot" *ngIf="webcamImage">
-    <img [src]="webcamImage.imageAsDataUrl" />
+    <img class="col-lg-2 col-md-4 col-sm-12 col-xs-12" [src]="webcamImage.imageAsDataUrl" />
   </div>
 </div>
